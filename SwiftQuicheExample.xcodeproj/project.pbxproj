@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9F5AF54E286E1D470017DB9F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5AF54D286E1D470017DB9F /* main.swift */; };
+		9F5AF558286E1F280017DB9F /* SwiftQuiche in Frameworks */ = {isa = PBXBuildFile; productRef = 9F5AF557286E1F280017DB9F /* SwiftQuiche */; };
+		9F5AF55A286E1FB00017DB9F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F5AF559286E1FB00017DB9F /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		9F5AF54A286E1D470017DB9F /* SwiftQuicheExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftQuicheExample; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5AF54D286E1D470017DB9F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		9F5AF555286E1D6E0017DB9F /* swift-quiche */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swift-quiche"; path = "../quic/swift-quiche"; sourceTree = "<group>"; };
+		9F5AF559286E1FB00017DB9F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F5AF55A286E1FB00017DB9F /* Security.framework in Frameworks */,
+				9F5AF558286E1F280017DB9F /* SwiftQuiche in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,8 +47,10 @@
 		9F5AF541286E1D470017DB9F = {
 			isa = PBXGroup;
 			children = (
+				9F5AF554286E1D6E0017DB9F /* Packages */,
 				9F5AF54C286E1D470017DB9F /* SwiftQuicheExample */,
 				9F5AF54B286E1D470017DB9F /* Products */,
+				9F5AF556286E1F280017DB9F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +70,22 @@
 			path = SwiftQuicheExample;
 			sourceTree = "<group>";
 		};
+		9F5AF554286E1D6E0017DB9F /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				9F5AF555286E1D6E0017DB9F /* swift-quiche */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		9F5AF556286E1F280017DB9F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9F5AF559286E1FB00017DB9F /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,6 +102,9 @@
 			dependencies = (
 			);
 			name = SwiftQuicheExample;
+			packageProductDependencies = (
+				9F5AF557286E1F280017DB9F /* SwiftQuiche */,
+			);
 			productName = SwiftQuicheExample;
 			productReference = 9F5AF54A286E1D470017DB9F /* SwiftQuicheExample */;
 			productType = "com.apple.product-type.tool";
@@ -284,6 +311,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9F5AF557286E1F280017DB9F /* SwiftQuiche */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftQuiche;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9F5AF542286E1D470017DB9F /* Project object */;
 }

@@ -1,11 +1,7 @@
-//
-//  main.swift
-//  SwiftQuicheExample
-//
-//  Created by Kenneth Laskoski on 30/06/22.
-//
+//  Copyright Kenneth Laskoski. All Rights Reserved.
+//  SPDX-License-Identifier: Apache-2.0
 
-import Foundation
+import SwiftQuiche
 
-print("Hello, World!")
 
+print(sqQuicVersion)
