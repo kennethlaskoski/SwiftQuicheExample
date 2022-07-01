@@ -10,6 +10,9 @@
 		9F5AF54E286E1D470017DB9F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5AF54D286E1D470017DB9F /* main.swift */; };
 		9F5AF558286E1F280017DB9F /* SwiftQuiche in Frameworks */ = {isa = PBXBuildFile; productRef = 9F5AF557286E1F280017DB9F /* SwiftQuiche */; };
 		9F5AF55A286E1FB00017DB9F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F5AF559286E1FB00017DB9F /* Security.framework */; };
+		9F5AF566286E36610017DB9F /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = 9F5AF565286E36610017DB9F /* NIO */; };
+		9F5AF568286E36610017DB9F /* NIOCore in Frameworks */ = {isa = PBXBuildFile; productRef = 9F5AF567286E36610017DB9F /* NIOCore */; };
+		9F5AF56A286E36610017DB9F /* NIOPosix in Frameworks */ = {isa = PBXBuildFile; productRef = 9F5AF569286E36610017DB9F /* NIOPosix */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +41,9 @@
 			files = (
 				9F5AF55A286E1FB00017DB9F /* Security.framework in Frameworks */,
 				9F5AF558286E1F280017DB9F /* SwiftQuiche in Frameworks */,
+				9F5AF566286E36610017DB9F /* NIO in Frameworks */,
+				9F5AF568286E36610017DB9F /* NIOCore in Frameworks */,
+				9F5AF56A286E36610017DB9F /* NIOPosix in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +110,9 @@
 			name = SwiftQuicheExample;
 			packageProductDependencies = (
 				9F5AF557286E1F280017DB9F /* SwiftQuiche */,
+				9F5AF565286E36610017DB9F /* NIO */,
+				9F5AF567286E36610017DB9F /* NIOCore */,
+				9F5AF569286E36610017DB9F /* NIOPosix */,
 			);
 			productName = SwiftQuicheExample;
 			productReference = 9F5AF54A286E1D470017DB9F /* SwiftQuicheExample */;
@@ -133,6 +142,9 @@
 				Base,
 			);
 			mainGroup = 9F5AF541286E1D470017DB9F;
+			packageReferences = (
+				9F5AF564286E36610017DB9F /* XCRemoteSwiftPackageReference "swift-nio" */,
+			);
 			productRefGroup = 9F5AF54B286E1D470017DB9F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -312,10 +324,36 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		9F5AF564286E36610017DB9F /* XCRemoteSwiftPackageReference "swift-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-nio.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		9F5AF557286E1F280017DB9F /* SwiftQuiche */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftQuiche;
+		};
+		9F5AF565286E36610017DB9F /* NIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F5AF564286E36610017DB9F /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIO;
+		};
+		9F5AF567286E36610017DB9F /* NIOCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F5AF564286E36610017DB9F /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOCore;
+		};
+		9F5AF569286E36610017DB9F /* NIOPosix */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F5AF564286E36610017DB9F /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOPosix;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
