@@ -23,8 +23,8 @@ public final class QuicheServerHandler: ChannelInboundHandler {
 
     (type, version, scid, dcid, token) = try! sqHeaderInfo(buffer: bytes)
 
-    print(type!)
-    print(version)
+    print("Type: \(type!)")
+    print("Version: \(version)")
     print(scid)
     print(dcid)
     print(token)
