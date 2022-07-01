@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F54E50E286F51E3000CF22C /* QuicheServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F54E50D286F51E3000CF22C /* QuicheServerHandler.swift */; };
 		9F5AF54E286E1D470017DB9F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5AF54D286E1D470017DB9F /* main.swift */; };
 		9F5AF558286E1F280017DB9F /* SwiftQuiche in Frameworks */ = {isa = PBXBuildFile; productRef = 9F5AF557286E1F280017DB9F /* SwiftQuiche */; };
 		9F5AF55A286E1FB00017DB9F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F5AF559286E1FB00017DB9F /* Security.framework */; };
@@ -28,6 +29,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9F54E50D286F51E3000CF22C /* QuicheServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuicheServerHandler.swift; sourceTree = "<group>"; };
 		9F5AF54A286E1D470017DB9F /* SwiftQuicheExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftQuicheExample; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5AF54D286E1D470017DB9F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		9F5AF555286E1D6E0017DB9F /* swift-quiche */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swift-quiche"; path = "../quic/swift-quiche"; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				9F5AF54D286E1D470017DB9F /* main.swift */,
+				9F54E50D286F51E3000CF22C /* QuicheServerHandler.swift */,
 			);
 			path = SwiftQuicheExample;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F54E50E286F51E3000CF22C /* QuicheServerHandler.swift in Sources */,
 				9F5AF54E286E1D470017DB9F /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
