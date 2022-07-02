@@ -3,4 +3,4 @@
 
 import NIOPosix
 
-public typealias QuicheServerBootstrap = DatagramBootstrap
+typealias QuicheServerBootstrap = DatagramBootstrap

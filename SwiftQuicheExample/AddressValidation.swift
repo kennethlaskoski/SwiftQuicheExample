@@ -4,8 +4,7 @@
 import NIOCore
 import SwiftQuiche
 
-fileprivate let salt = "SwiftQuicheExample"
-fileprivate let saltCount = salt.utf8CString.count
+fileprivate let salt = "SwiftQuicheExample".utf8CString
 
 struct AddressValidationToken {
   let data: [UInt8]
@@ -17,7 +16,7 @@ struct AddressValidationToken {
 
 extension AddressValidationToken {
   static var maxLength: Int {
-    var result = saltCount
+    var result = salt.count
     result += MemoryLayout<SocketAddress>.size
     result += SQConnectionID.maxLength
     return result
@@ -30,7 +29,7 @@ extension AddressValidationToken {
   static func mint(for address: SocketAddress, with id: SQConnectionID) -> AddressValidationToken {
     var result: [UInt8] = []
 
-    salt.utf8CString.withUnsafeBytes {
+    salt.withUnsafeBytes {
       result.append(contentsOf: $0)
     }
 
@@ -50,15 +49,15 @@ extension AddressValidationToken {
   /// Note that this function is only an example and doesn't do any cryptographic
   /// authentication of the token. *It should not be used in production system*.
   func validate(for address: SocketAddress) -> SQConnectionID? {
-    guard data.count >= saltCount else {
+    guard data.count >= salt.count else {
       return nil
     }
-    guard String(cString: data) == salt else {
+    guard String(cString: data).utf8CString == salt else {
       return nil
     }
 
     return data.withUnsafeBytes { p -> SQConnectionID? in
-      var offset = saltCount
+      var offset = salt.count
       let tokenAddress = p.baseAddress?.advanced(by: offset).load(as: SocketAddress.self)
       guard tokenAddress == address else {
         return nil
