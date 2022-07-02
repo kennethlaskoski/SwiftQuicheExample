@@ -6,13 +6,11 @@ import NIOPosix
 
 let group = MultiThreadedEventLoopGroup(numberOfThreads: 1)
 var bootstrap = QuicheServerBootstrap(group: group)
-// Specify backlog and enable SO_REUSEADDR
   .channelOption(ChannelOptions.socketOption(.so_reuseaddr), value: 1)
-
-// Set the handlers that are applied to the bound channel
   .channelInitializer { channel in
-    // Ensure we don't read faster than we can write by adding the BackPressureHandler into the pipeline.
-    channel.pipeline.addHandler(QuicheServerHandler())
+    channel.pipeline.addHandler(QuicheDatagramHandler()).flatMap {
+    channel.pipeline.addHandler(QuicheVersionNegotiationHandler())
+    }
   }
 
 defer {

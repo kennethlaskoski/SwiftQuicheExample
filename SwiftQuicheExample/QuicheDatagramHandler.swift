@@ -5,18 +5,35 @@ import NIOCore
 import NIOPosix
 import SwiftQuiche
 
-final class QuicheServerHandler: ChannelInboundHandler {
+final class QuicheDatagramHandler: ChannelInboundHandler {
   public typealias InboundIn = AddressedEnvelope<ByteBuffer>
   public typealias OutboundOut = AddressedEnvelope<ByteBuffer>
-
-  let process = PacketProcess()
 
   public func channelRead(context: ChannelHandlerContext, data: NIOAny) {
     let envelope = unwrapInboundIn(data)
     var buffer = envelope.data
-    let bytes = buffer.readBytes(length: buffer.readableBytes)!
+    let packet = buffer.readBytes(length: buffer.readableBytes)!
+    let header = try! sqHeaderInfo(
+      packet: packet,
+      localConnectionIDLength: localConnectionIDLength,
+      tokenLength: AddressValidationToken.maxLength
+    )
 
-    process.consume(packet: bytes)
+    print("Type: \(header.type)")
+    print("Version: \(header.version)")
+    print("Sender ID: \(header.scid)")
+    print("Destination ID: \(header.dcid)")
+    print("Token: \(String(describing: header.token))")
+
+    if let client = clients[header.dcid] {
+      print(client)
+    } else {
+      if !isSupported(version: header.version) {
+        print("TODO: Version negotiation")
+      } else {
+        print("TODO: Create connection")
+      }
+    }
 
     // As we are not really interested getting notified on success or failure we just pass nil as promise to
     // reduce allocations.
@@ -24,8 +41,6 @@ final class QuicheServerHandler: ChannelInboundHandler {
   }
 
   public func channelReadComplete(context: ChannelHandlerContext) {
-    // As we are not really interested getting notified on success or failure we just pass nil as promise to
-    // reduce allocations.
     context.flush()
   }
 
